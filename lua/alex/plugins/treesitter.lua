@@ -2,8 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function ()
-    require("nvim-treesitter.configs").setup {
-      -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+    require("nvim-treesitter.configs").setup{
       ensure_installed = { "c_sharp", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
       auto_install = true,
       highlight = {
