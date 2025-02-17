@@ -15,10 +15,17 @@ return {
     },
     completion = {
       menu = { border = 'single' },
-      documentation = { window = { border = 'single' } },
+      documentation = {
+	auto_show = true,
+	auto_show_delay_ms = 350,
+	window = { border = 'single' }
+      },
       list = { max_items = 200 },
     },
-  },
-  documentation = { auto_show = true, auto_show_delay_ms = 200 },
-  snippets = { preset = 'default' },
+    signature = { enabled = true },
+    cmdline = {
+      enabled = false,
+    },
+    snippets = { preset = 'default' },
+  }
 }
