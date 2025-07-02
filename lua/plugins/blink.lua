@@ -3,7 +3,7 @@ return {
         "saghen/blink.cmp",
         version = not vim.g.lazyvim_blink_main and "*",
         build = vim.g.lazyvim_blink_main and "cargo build --release",
-        enabled = false,
+        enabled = true,
         opts_extend = {
             "sources.completion.enabled_providers",
             "sources.compat",
@@ -19,12 +19,20 @@ return {
             --     version = not vim.g.lazyvim_blink_main and "*",
             -- },
         },
-        event = "InsertEnter",
+        -- event = "InsertEnter",
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
-            signature = { enabled = false },
+            signature = {
+                enabled = true,
+                window = {
+                    treesitter_highlighting = true,
+                    show_documentation = true,
+                    max_width = 80,
+                },
+            },
+
             snippets = {
                 expand = function(snippet)
                     return LazyVim.cmp.expand(snippet)
@@ -32,12 +40,7 @@ return {
             },
 
             appearance = {
-                -- sets the fallback highlight groups to nvim-cmp's highlight groups
-                -- useful for when your theme doesn't support blink.cmp
-                -- will be removed in a future release, assuming themes add support
                 use_nvim_cmp_as_default = false,
-                -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-                -- adjusts spacing to ensure icons are aligned
                 nerd_font_variant = "mono",
             },
 
@@ -50,15 +53,21 @@ return {
 
                 menu = {
                     auto_show = true,
-                    border = "rounded",
+                    border = "padded",
+                    scrollbar = false,
                     draw = {
                         treesitter = { "lsp" },
                     },
                 },
 
                 documentation = {
-                    auto_show = false,
-                    auto_show_delay_ms = 200,
+                    auto_show = true,
+                    window = {
+                        border = "padded",
+                        max_width = 150,
+                    },
+                    auto_show_delay_ms = 600,
+                    treesitter_highlighting = true,
                 },
 
                 ghost_text = {
@@ -78,7 +87,7 @@ return {
             },
 
             keymap = {
-                preset = "enter",
+                -- preset = "enter",
                 ["<C-y>"] = { "select_and_accept" },
             },
         },
