@@ -2,7 +2,6 @@ return {
   "seblyng/roslyn.nvim",
   dependencies = {
     "tris203/rzls.nvim",
-    branch = "fix/aftershave-crash",
     config = true,
   },
   ft = { "cs", "razor" },
