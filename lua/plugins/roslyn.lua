@@ -1,5 +1,6 @@
 return {
   "seblyng/roslyn.nvim",
+  -- enabled = false,
   dependencies = {
     "tris203/rzls.nvim",
     config = true,
