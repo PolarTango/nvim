@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "roslyn",
       "rzls",
+      "html-lsp",
     },
     registries = {
       "github:mason-org/mason-registry",

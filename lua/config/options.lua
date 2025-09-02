@@ -4,6 +4,7 @@
 -- vim.opt.shiftwidth = 4
 -- vim.opt.tabstop = 4
 vim.g.root_spec = { "lsp", { "lua" }, "cwd" }
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "cs", "sql" },
   callback = function()
@@ -14,7 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "json",
+  pattern = { "json", "txt" },
   callback = function()
     vim.bo.filetype = "jsonc"
   end,
